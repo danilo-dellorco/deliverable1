@@ -93,6 +93,5 @@ public class RetrieveTicketsInfo {
 			}
 		}
 		CSVHandler.writeControlChartOnCSV(fixedBugs,months);
-
 	}
 }

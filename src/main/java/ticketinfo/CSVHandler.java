@@ -7,8 +7,7 @@ import java.util.logging.Logger;
 
 public class CSVHandler {
 
-	private CSVHandler() {
-	}
+	private CSVHandler() {}
 
 	/**
 	 * Salva su un file CSV il Process Control Chart
