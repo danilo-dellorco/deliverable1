@@ -32,7 +32,8 @@ public class RetrieveTicketsInfo {
           String jsonText = readAll(rd);
           JSONArray json = new JSONArray(jsonText);
           return json;
-          } finally {
+          }
+      finally {
         	  is.close();
           }
    }
@@ -86,10 +87,11 @@ public class RetrieveTicketsInfo {
    
    public static void main(String[] args) throws IOException, JSONException {
 	   List<JiraTicket> fixedBugs = getFixedBugs("DAFFODIL");
-	   List<String> months = new ArrayList<String>();
+	   List<String> months = new ArrayList<>();
 	   
-	   // Count the occurrencies of a month in the fixed bugs list to count how many
-	   // bugs has been fixed in one month
+	   
+	   // Conta quante volte un mese appare all'interno della lista dei bug fixati 
+	   // in modo da vedere quanti bug sono stati fixati in quel mese
 	   for (JiraTicket b:fixedBugs) {
 		   if (!months.contains(b.getDate())){
 			   months.add(b.getDate());
@@ -108,7 +110,7 @@ public class RetrieveTicketsInfo {
 		   String msg = String.format("%s | %d",m,count);
 		   System.out.println(msg);
 		   
-		   // To Copy Easily in the whole Excel column
+		   // [DEBUG] Permette di copiare facilmente i dati all'interno della colonna Excel
 		   // System.out.println(m);
 		   // System.out.println(count)
 		   
