@@ -12,6 +12,13 @@
 		<maven.compiler.target>8</maven.compiler.target>
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>jgit-repository</id>
+			<url>https://repo.eclipse.org/content/groups/releases/</url>
+		</repository>
+	</repositories>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -33,5 +40,13 @@
 			<artifactId>json</artifactId>
 			<version>20210307</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jgit/org.eclipse.jgit -->
+		<dependency>
+			<groupId>org.eclipse.jgit</groupId>
+			<artifactId>org.eclipse.jgit</artifactId>
+			<version>5.12.0.202106070339-r</version>
+		</dependency>
+
 	</dependencies>
 </project>

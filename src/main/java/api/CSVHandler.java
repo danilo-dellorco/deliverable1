@@ -1,9 +1,11 @@
-package ticketinfo;
+package api;
 
 import java.io.FileWriter;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import entity.JiraTicket;
 
 public class CSVHandler {
 
@@ -20,8 +22,8 @@ public class CSVHandler {
 
 			for (String m : months) {
 				int count = 0;
-				for (JiraTicket b : fixedBugs) {
-					if (b.getDate().equals(m)) {
+				for (JiraTicket t : fixedBugs) {
+					if (t.getMonth().equals(m)) {
 						count++;
 					}
 				}
