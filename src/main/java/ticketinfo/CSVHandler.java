@@ -20,7 +20,6 @@ public class CSVHandler {
 			StringBuilder outputBuilder = new StringBuilder("Month;NumBugFixed\n");
 
 			for (String m : months) {
-				System.out.println(m);
 				int count = 0;
 				for (JiraTicket b : fixedBugs) {
 					if (b.getDate().equals(m)) {

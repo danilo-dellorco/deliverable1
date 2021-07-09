@@ -12,9 +12,4 @@ public class JiraTicket {
 	public String getDate() {
 		return this.date;
 	}
-	
-	public void print() {
-		String ticket = String.format("(%s,%s)", this.key,this.date);
-		System.out.println(ticket);
-	}
 }
