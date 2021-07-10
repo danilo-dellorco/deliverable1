@@ -54,6 +54,7 @@ public class AnalyzeProject {
 		return fixedBugs;
 	}
 	
+	
 	/**
 	 * Mantiene soltanto i ticket che hanno un commit git associato. Risolve inoltre eventuali incoerenze
 	 * tra la data riportata su Git e su Jira
@@ -89,7 +90,6 @@ public class AnalyzeProject {
 		// Conta quante volte un mese appare all'interno della lista dei bug fixati
 		// in modo da vedere quanti bug sono stati fixati in quel mese
 		for (JiraTicket t : tickets) {
-			System.out.println(t.getDate());
 			if (!months.contains(t.getMonth())) {
 				months.add(t.getMonth());
 			}

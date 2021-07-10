@@ -12,7 +12,7 @@ public class CSVHandler {
 	private CSVHandler() {}
 
 	/**
-	 * Salva su un file CSV il Process Control Chart
+	 * Salva su un file CSV i dati relativi al Process Control Chart
 	 **/
 	public static void writeControlChartOnCSV(List<JiraTicket> fixedBugs, List<String> months) {
 		String outputName = "DAFFODIL_DATA.csv";
