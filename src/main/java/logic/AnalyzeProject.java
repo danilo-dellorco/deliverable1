@@ -22,7 +22,7 @@ public class AnalyzeProject {
 	private static final String JIRA_PROECT_NAME = "DAFFODIL";
 	private static final String GIT_PROJECT_NAME = "daffodil";
 	private static Logger logger = Logger.getLogger(AnalyzeProject.class.getName());
-
+	
 	/**
 	 * Ottiene la lista dei JiraTicket di tipo FixBug relativi al progetto considerato
 	 */
@@ -30,6 +30,7 @@ public class AnalyzeProject {
 		Integer j = 0;
 		Integer i = 0;
 		Integer total = 1;
+		System.out.println("PROVA");
 		List<JiraTicket> fixedBugs = new ArrayList<>();
 		while (i < total) {
 			j = i + 1000;
