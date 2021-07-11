@@ -14,7 +14,6 @@ import api.CSVHandler;
 import api.GitAPI;
 import entity.GitCommit;
 import entity.JiraTicket;
-
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.json.JSONArray;
 import api.JsonHandler;
