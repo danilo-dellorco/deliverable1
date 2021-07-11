@@ -33,6 +33,7 @@ public class AnalyzeProject {
 		List<JiraTicket> fixedBugs = new ArrayList<>();
 		while (i < total) {
 			j = i + 1000;
+			System.out.println("asdsa");
 
 			// Query Rest per ottenere tutti i ticket relativi al progetto considerato
 			String url = "https://issues.apache.org/jira/rest/api/2/search?jql=project=%22" + projName
