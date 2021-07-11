@@ -1,9 +1,5 @@
 package entity;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
  * Modella un Ticket presente su Jira
  */
@@ -11,7 +7,7 @@ public class JiraTicket {
 	String key;
 	String date;
 	
-	public JiraTicket (String key, String date) throws ParseException {
+	public JiraTicket (String key, String date) {
 		this.key = key;
 		this.date = date.substring(0,10);
 	}

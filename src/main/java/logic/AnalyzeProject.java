@@ -6,6 +6,9 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import api.CSVHandler;
@@ -20,11 +23,12 @@ import api.JsonHandler;
 public class AnalyzeProject {
 	private static final String JIRA_PROECT_NAME = "DAFFODIL";
 	private static final String GIT_PROJECT_NAME = "daffodil";
+	private static Logger logger = Logger.getLogger(AnalyzeProject.class.getName());
 
 	/**
 	 * Ottiene la lista dei JiraTicket di tipo FixBug relativi al progetto considerato
 	 */
-	public static List<JiraTicket> getFixedBugs(String projName) throws JSONException, IOException, ParseException {
+	public static List<JiraTicket> getFixedBugs(String projName) throws JSONException, IOException {
 		Integer j = 0;
 		Integer i = 0;
 		Integer total = 1;
@@ -59,18 +63,20 @@ public class AnalyzeProject {
 	 * Mantiene soltanto i ticket che hanno un commit git associato. Risolve inoltre eventuali incoerenze
 	 * tra la data riportata su Git e su Jira
 	 */
-	public static void bindJiraToGit(List<JiraTicket> tickets) throws IOException, GitAPIException, ParseException {
+	public static void bindJiraToGit(List<JiraTicket> tickets) throws IOException, GitAPIException {
 		GitAPI git = new GitAPI(GIT_PROJECT_NAME, "output/");
 		git.init();
 		List<GitCommit> commits = git.getCommits();
-
+		int notConsistent = 0; 
 		for (GitCommit c : commits) {
 			for (JiraTicket t : tickets) {
 				if (c.getComment().contains(t.getKey()) && (t.getDate().compareTo(c.getDate()) < 0)) {
 					t.setDate(c.getDate());
+					notConsistent++;
 				}
 			}
 		}
+		logger.log(Level.INFO, "Fix Bug Tickets Corrected: {0}", notConsistent);
 	}
 
 	
@@ -81,12 +87,14 @@ public class AnalyzeProject {
 			list.sort(Comparator.comparing(JiraTicket::getDate));
 	}
 	
-	public static void main(String[] args) throws IOException, JSONException, GitAPIException, ParseException {
+	public static void main(String[] args) throws IOException, JSONException, GitAPIException {
 		List<JiraTicket> tickets = getFixedBugs(JIRA_PROECT_NAME);
-		List<String> months = new ArrayList<>();
+		logger.log(Level.INFO, "Fix Bug Tickets Found: {0}", tickets.size());
 		bindJiraToGit(tickets);
+		logger.log(Level.INFO, "Fix Bug Tickets Found: {0}", tickets.size());
 		orderJiraTicket(tickets);
 
+		List<String> months = new ArrayList<>();
 		// Conta quante volte un mese appare all'interno della lista dei bug fixati
 		// in modo da vedere quanti bug sono stati fixati in quel mese
 		for (JiraTicket t : tickets) {

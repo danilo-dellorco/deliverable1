@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Date;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,7 +68,7 @@ public class GitAPI {
 		return repoDir;
 	}
 
-	public List<GitCommit> getCommits() throws GitAPIException, ParseException {
+	public List<GitCommit> getCommits() throws GitAPIException {
 		if (this.commits != null) {
 			return this.commits;
 		}

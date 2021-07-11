@@ -1,7 +1,6 @@
 package entity;
 
 import java.util.Date;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import org.eclipse.jgit.lib.ObjectId;
