@@ -30,7 +30,6 @@ public class AnalyzeProject {
 		Integer j = 0;
 		Integer i = 0;
 		Integer total = 1;
-		System.out.println("PROVA");
 		List<JiraTicket> fixedBugs = new ArrayList<>();
 		while (i < total) {
 			j = i + 1000;
