@@ -1,5 +1,5 @@
 # ISW2 - Deliverable1 [![Build Status](https://travis-ci.com/danilo-dellorco/deliverable1.svg?branch=master)](https://travis-ci.com/danilo-dellorco/deliverable1) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=danilo-dellorco_deliverable1&metric=code_smells)](https://sonarcloud.io/dashboard?id=danilo-dellorco_deliverable1)
-Codice relativo al primo Deliverable. Effettua l'analisi su ticket e commit di tipo bug fix relativi ad un progetto, fornendo in output i dati necessari per realizzare un Process Control Chart
+Danilo Dell'Orco 0300229
 
 # Configurazione
 1. Specificare nel parametro ```JIRA_PROJECT_NAME``` il nome del progetto come riportato su JIRA
